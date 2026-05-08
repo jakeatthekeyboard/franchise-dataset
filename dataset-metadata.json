@@ -1,0 +1,31 @@
+{
+  "title": "U.S. Franchise Costs 2025 — 172 Brands from Real FDD Filings",
+  "subtitle": "Investment ranges, royalty rates, unit counts, financial performance, and health scores extracted from Franchise Disclosure Documents",
+  "description": "Structured cost data for 172 U.S. franchise brands, extracted from 2025 Franchise Disclosure Documents (FDDs) filed with state regulators.\n\nEvery franchisor is legally required to file an FDD before selling franchises. These documents disclose initial investment ranges, royalty structures, advertising fund contributions, unit growth data, financial performance representations (Item 19), litigation history, and contract terms.\n\nThis dataset extracts 33 key data points per brand into a single, comparable format across 16 industry categories (QSR, Home Services, Fitness, Education, etc.).\n\n**Key highlights:**\n- Median franchise investment: $289K–$712K\n- Average franchise fee: $40K (only 5–14% of total cost)\n- 89 brands (52%) disclose Item 19 financial performance data\n- Categories range from $31K (staffing) to $94M (hotels)\n\nSource: State regulatory databases (primarily MN CARDS). Extraction verified against source PDFs.\n\nInteractive comparison tool and API: https://franchisevs.com",
+  "id": "jakeatthekeyboard/us-franchise-costs-2025",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0"
+    }
+  ],
+  "keywords": [
+    "franchise",
+    "franchise disclosure document",
+    "fdd",
+    "business costs",
+    "franchise fees",
+    "small business",
+    "entrepreneurship",
+    "investment",
+    "royalties",
+    "qsr",
+    "fast food",
+    "home services"
+  ],
+  "resources": [
+    {
+      "path": "data/franchise-costs-2025.csv",
+      "description": "172 franchise brands with 33 fields: investment ranges, royalty rates, unit counts, financial performance, health scores, and litigation data. Extracted from 2025 FDD filings."
+    }
+  ]
+}
