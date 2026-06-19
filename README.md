@@ -1,6 +1,6 @@
 # Franchise Cost Dataset (2025 FDDs)
 
-Structured cost data for **172 U.S. franchise brands**, extracted from publicly available Franchise Disclosure Documents (FDDs).
+Structured cost data for **623 U.S. franchise brands**, extracted from publicly available Franchise Disclosure Documents (FDDs).
 
 Every franchisor is legally required to file an FDD before selling franchises. These documents contain the real numbers — initial investment ranges, royalty rates, advertising fees, unit counts, financial performance data, and litigation history. This dataset extracts the key data points into a single, comparable format.
 
@@ -34,24 +34,29 @@ Full field list in the CSV header.
 
 ```
 data/
-  franchise-costs-2025.csv    # 172 brands, 33 columns
+  franchise-costs-2025.csv    # 623 brands, 33 columns
   franchise-costs-2025.json   # Same data in JSON format
 ```
 
 ## Categories
 
-| Category | Brands | Avg. Investment Range |
-|----------|--------|----------------------|
-| QSR | 32 | $500K – $2.5M |
-| Home Services | 31 | $80K – $250K |
-| Food | 17 | $300K – $1.5M |
-| Fitness | 14 | $150K – $500K |
-| Automotive | 14 | $200K – $600K |
-| Education | 12 | $80K – $300K |
-| Personal Services | 12 | $100K – $350K |
-| Pet | 8 | $150K – $500K |
-| Senior Care | 3 | $80K – $200K |
-| + 7 more | 29 | varies |
+623 brands across 22 categories. Labels follow the source FDD taxonomy, so
+some food/restaurant buckets overlap (QSR, Restaurant, Restaurants, Food) — a
+`groupby("category")` returns exactly these as-filed values. Ranges below are
+the per-category **median** investment_low – investment_high.
+
+| Category | Brands | Median Investment |
+|----------|--------|-------------------|
+| Retail | 207 | $1.5M – $3.5M |
+| Restaurants | 101 | $350K – $800K |
+| QSR | 57 | $781K – $2.3M |
+| Restaurant | 52 | $500K – $1.5M |
+| Food | 37 | $469K – $1.1M |
+| Home Services | 34 | $128K – $202K |
+| Automotive | 24 | $475K – $1.9M |
+| Education | 15 | $405K – $600K |
+| Fitness | 14 | $470K – $1.1M |
+| + 13 more | 82 | varies |
 
 ## Quick start
 
@@ -96,7 +101,7 @@ This dataset is released under the [CC BY 4.0](https://creativecommons.org/licen
 
 **Suggested citation:**
 
-> FranchiseVS. (2025). Franchise Cost Dataset: Structured FDD data for 172 U.S. franchise brands. https://franchisevs.com
+> FranchiseVS. (2025). Franchise Cost Dataset: Structured FDD data for 623 U.S. franchise brands. https://franchisevs.com
 
 ## Related
 
