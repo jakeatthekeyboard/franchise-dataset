@@ -1,31 +1,192 @@
 {
-  "title": "U.S. Franchise Costs 2025 — 623 Brands from Real FDD Filings",
-  "subtitle": "Investment ranges, royalty rates, unit counts, financial performance, and health scores extracted from Franchise Disclosure Documents",
-  "description": "Structured cost data for 623 U.S. franchise brands, extracted from 2025 Franchise Disclosure Documents (FDDs) filed with state regulators.\n\nEvery franchisor is legally required to file an FDD before selling franchises. These documents disclose initial investment ranges, royalty structures, advertising fund contributions, unit growth data, financial performance representations (Item 19), litigation history, and contract terms.\n\nThis dataset extracts 33 key data points per brand into a single, comparable format across 22 industry categories (Retail, Restaurants, QSR, Home Services, Fitness, Education, etc.).\n\n**Key highlights:**\n- Median franchise investment: $500K–$1.5M\n- Average franchise fee: ~$35K (a small fraction of total startup cost)\n- 250 brands (40%) disclose Item 19 financial performance data\n- Investment ranges span $17K (commercial cleaning) to $200M (big-box retail)\n\nSource: State regulatory databases (primarily MN CARDS). Extraction verified against source PDFs.\n\nInteractive comparison tool and API: https://franchisevs.com",
-  "id": "jakeatthekeyboard/us-franchise-costs-2025",
+  "title": "US Franchise Costs 2025 \u2014 623 Brands (FDD data)",
+  "subtitle": "Investment, royalties, units, financials & health scores from 2025 FDDs",
+  "description": "Structured cost data for 623 U.S. franchise brands, extracted from 2025 Franchise Disclosure Documents (FDDs) filed with state regulators.\n\nEvery franchisor is legally required to file an FDD before selling franchises. These documents disclose initial investment ranges, royalty structures, advertising fund contributions, unit growth data, financial performance representations (Item 19), litigation history, and contract terms.\n\nThis dataset extracts 33 key data points per brand into a single, comparable format across 22 industry categories (Retail, Restaurants, QSR, Home Services, Fitness, Education, etc.).\n\n**Key highlights:**\n- Median franchise investment: $500K\u2013$1.5M\n- Average franchise fee: ~$35K (a small fraction of total startup cost)\n- 250 brands (40%) disclose Item 19 financial performance data\n- Investment ranges span $17K (commercial cleaning) to $200M (big-box retail)\n\nSource: State regulatory databases (primarily MN CARDS). Extraction verified against source PDFs.\n\nInteractive comparison tool and API: https://franchisevs.com\n\n**Provenance:** every row is extracted from the brand's actual 2025 Franchise Disclosure Document (FDD) \u2014 the legal disclosure franchisors must file \u2014 primarily via the Minnesota CARDS public filing system, then normalized, cross-checked (investment-range sums, unit counts), and scored. Maintained by [FranchiseVS](https://franchisevs.com).\n\nCompare any two brands side-by-side, with per-brand cost pages and category guides: [franchisevs.com](https://franchisevs.com)",
+  "id": "jakemacofficial/us-franchise-costs-2025",
   "licenses": [
     {
-      "name": "CC-BY-4.0"
+      "name": "CC-BY-SA-4.0"
     }
   ],
   "keywords": [
-    "franchise",
-    "franchise disclosure document",
-    "fdd",
-    "business costs",
-    "franchise fees",
-    "small business",
-    "entrepreneurship",
-    "investment",
-    "royalties",
-    "qsr",
-    "fast food",
-    "home services"
+    "business",
+    "economics",
+    "united states",
+    "finance"
   ],
   "resources": [
     {
       "path": "data/franchise-costs-2025.csv",
-      "description": "623 franchise brands with 33 fields: investment ranges, royalty rates, unit counts, financial performance, health scores, and litigation data. Extracted from 2025 FDD filings."
+      "description": "623 franchise brands with 33 fields: investment ranges, royalty rates, unit counts, financial performance, health scores, and litigation data. Extracted from 2025 FDD filings.",
+      "schema": {
+        "fields": [
+          {
+            "name": "brand_name",
+            "description": "Franchise brand name",
+            "type": "string"
+          },
+          {
+            "name": "slug",
+            "description": "URL slug of the brand's profile at franchisevs.com/franchise/<slug>",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "description": "Primary category (QSR, home services, fitness, ...)",
+            "type": "string"
+          },
+          {
+            "name": "subcategory",
+            "description": "More specific segment within the category",
+            "type": "string"
+          },
+          {
+            "name": "year_founded",
+            "description": "Year the company was founded",
+            "type": "number"
+          },
+          {
+            "name": "year_franchising_began",
+            "description": "Year the company began franchising",
+            "type": "number"
+          },
+          {
+            "name": "headquarters_state",
+            "description": "US state of the corporate headquarters",
+            "type": "string"
+          },
+          {
+            "name": "fdd_year",
+            "description": "Year of the Franchise Disclosure Document the figures were extracted from",
+            "type": "number"
+          },
+          {
+            "name": "franchise_fee_low",
+            "description": "Initial franchise fee, low end, USD (FDD Item 5)",
+            "type": "number"
+          },
+          {
+            "name": "franchise_fee_high",
+            "description": "Initial franchise fee, high end, USD (FDD Item 5)",
+            "type": "number"
+          },
+          {
+            "name": "investment_low",
+            "description": "Total initial investment, low end, USD (FDD Item 7)",
+            "type": "string"
+          },
+          {
+            "name": "investment_high",
+            "description": "Total initial investment, high end, USD (FDD Item 7)",
+            "type": "string"
+          },
+          {
+            "name": "royalty_type",
+            "description": "Royalty structure: percent, flat, or hybrid",
+            "type": "string"
+          },
+          {
+            "name": "royalty_value",
+            "description": "Royalty rate (% of the royalty_basis) or flat amount in USD",
+            "type": "number"
+          },
+          {
+            "name": "royalty_basis",
+            "description": "What the royalty is charged on (gross sales, net revenue, ...)",
+            "type": "string"
+          },
+          {
+            "name": "ad_fund_value",
+            "description": "Advertising/brand fund contribution (% or USD)",
+            "type": "string"
+          },
+          {
+            "name": "has_item19",
+            "description": "TRUE if the FDD discloses financial performance representations (Item 19)",
+            "type": "boolean"
+          },
+          {
+            "name": "average_gross_revenue",
+            "description": "Average unit gross revenue from Item 19, USD (where disclosed)",
+            "type": "number"
+          },
+          {
+            "name": "median_gross_revenue",
+            "description": "Median unit gross revenue from Item 19, USD (where disclosed)",
+            "type": "number"
+          },
+          {
+            "name": "total_units",
+            "description": "Total operating units (franchised + company-owned)",
+            "type": "number"
+          },
+          {
+            "name": "total_franchised",
+            "description": "Franchised units",
+            "type": "number"
+          },
+          {
+            "name": "total_company_owned",
+            "description": "Company-owned units",
+            "type": "number"
+          },
+          {
+            "name": "opened_this_year",
+            "description": "Units opened in the FDD reporting year",
+            "type": "number"
+          },
+          {
+            "name": "closed_this_year",
+            "description": "Units closed in the FDD reporting year",
+            "type": "number"
+          },
+          {
+            "name": "net_change",
+            "description": "Net unit change in the reporting year",
+            "type": "number"
+          },
+          {
+            "name": "net_growth_rate_pct",
+            "description": "Net unit growth rate, percent",
+            "type": "number"
+          },
+          {
+            "name": "term_length_years",
+            "description": "Initial franchise agreement term, years",
+            "type": "number"
+          },
+          {
+            "name": "territory_exclusive",
+            "description": "TRUE if an exclusive territory is granted",
+            "type": "boolean"
+          },
+          {
+            "name": "health_score",
+            "description": "FranchiseVS composite health score (0-100) from growth, fees, litigation and disclosure signals",
+            "type": "number"
+          },
+          {
+            "name": "fee_burden_pct",
+            "description": "Ongoing fees (royalty + ad fund) as a percent of revenue",
+            "type": "number"
+          },
+          {
+            "name": "payback_period_years",
+            "description": "Estimated years to recoup the initial investment (midpoint investment / estimated unit margin)",
+            "type": "number"
+          },
+          {
+            "name": "litigation_total_cases",
+            "description": "Litigation cases disclosed in FDD Item 3",
+            "type": "number"
+          },
+          {
+            "name": "litigation_risk_level",
+            "description": "Categorical litigation risk (low / medium / high) derived from Item 3",
+            "type": "string"
+          }
+        ]
+      }
     }
   ]
 }
